@@ -22,8 +22,9 @@ int main(void)
         printf("Error en la creación del archivo");
     }
     
-    //CONSULTAR REFERENCIA EN https://en.wikipedia.org/wiki/BMP_file_format
-   
+    /*CONSULTAR REFERENCIA EN https://en.wikipedia.org/wiki/BMP_file_format
+    https://stackoverflow.com/questions/11452246/add-a-bitmap-header-to-a-byte-array-then-create-a-bitmap-file
+    */
     char header[54] = {0x42, 0x4D, 0x36}; 
     
     int size = 54 + 3 * WIDTH * HEIGHT;
@@ -97,7 +98,7 @@ int main(void)
 
     header[52] = 0;
 
-    //SE ESCRIBEN LOS 52 ELEMENTOS DEL HEADER EN EL ARCHIVO
+    //SE ESCRIBEN LOS 54!!!! ELEMENTOS DEL HEADER EN EL ARCHIVO
     fwrite(header, sizeof(char), 54, fp);
 
 
